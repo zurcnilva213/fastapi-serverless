@@ -11,3 +11,6 @@
 
 ### How to deploy
 + `make deploy`
+
+### Author
+[Alvin Cruz](https://alvin.today/)
