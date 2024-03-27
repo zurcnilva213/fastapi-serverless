@@ -1,0 +1,29 @@
+service: Fase-api
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: prod
+  region: us-east-2
+
+functions:
+  booking_buddy_api:
+    handler: apps.admin_app.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  exclude:
+    - venv/**
+    - node_module/**
+
+custom:
+  pythonRequirements:
+    noDeploy:
+      - boto3
